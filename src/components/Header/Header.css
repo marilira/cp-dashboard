@@ -1,0 +1,13 @@
+@reference "../../index.css";
+
+app-header {
+  @apply flex items-center justify-between;
+}
+
+.app-title {
+  @apply text-3xl font-bold tracking-tight text-white;
+}
+
+.app-subtitle {
+  @apply mt-2 text-sm text-slate-400;
+}

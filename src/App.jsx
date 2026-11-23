@@ -1,8 +1,9 @@
-import Header from "./components/Header.jsx";
-import DailyCounter from "./components/DailyCounter.jsx";
-import ExerciseForm from "./components/ExerciseForm.jsx";
-import ExerciseList from "./components/ExerciseList.jsx";
+import Header from "./components/Header/Header.jsx";
+import DailyCounter from "./components/DailyCounter/DailyCounter.jsx";
+import ExerciseForm from "./components/ExerciseForm/ExerciseForm.jsx";
+import ExerciseList from "./components/ExerciseList/ExerciseList.jsx";
 import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
   const [dailyCounts, setDailyCounts] = useState(() => {
@@ -37,16 +38,32 @@ function App() {
   }
 
   return (
-    <main>
-      <Header />
-      {count === 0 ? (
-        <p>Você ainda não resolveu nenhum exercício hoje. Que tal começar?</p>
-      ) : (
-        <p>Boa! Você já resolveu {count} exercícios hoje. Continue assim!</p>
-      )}
-      <DailyCounter count={count} onClick={handleCount} />
-      <ExerciseForm setExercises={setExercises} />
-      <ExerciseList exercises={exercises} onDelete={handleDeleteExercise} />
+    <main className="app-container">
+      <div className="app-content">
+        <Header />
+        <section className="app-section">
+          <h2 className="section-title">Daily Counter</h2>
+          {count === 0 ? (
+            <p>
+              Você ainda não resolveu nenhum exercício hoje. Que tal começar?
+            </p>
+          ) : (
+            <p>
+              Boa! Você já resolveu {count} exercícios hoje. Continue assim!
+            </p>
+          )}
+          <DailyCounter count={count} onClick={handleCount} />
+        </section>
+        <section className="app-section">
+          <h2 className="section-title">Adicionar exercícios</h2>
+          <ExerciseForm setExercises={setExercises} />
+        </section>
+
+        <section className="app-section">
+          <h2 className="section-title">Seus exercícios</h2>
+          <ExerciseList exercises={exercises} onDelete={handleDeleteExercise} />
+        </section>
+      </div>
     </main>
   );
 }

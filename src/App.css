@@ -1,0 +1,17 @@
+@reference "./index.css";
+
+.app-container {
+  @apply min-h-screen bg-[#111329] text-white;
+}
+
+.app-content {
+  @apply mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 py-8 md:px-8;
+}
+
+.app-section {
+  @apply flex flex-col gap-5;
+}
+
+.section-title {
+  @apply text-xl font-semibold text-white;
+}
