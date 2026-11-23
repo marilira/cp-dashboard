@@ -35,6 +35,7 @@ export default function ExerciseForm(props) {
           type="text"
           name="name"
           placeholder="Ex: Soma Simples"
+          required
         />
       </div>
 
