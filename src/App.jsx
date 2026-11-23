@@ -1,9 +1,16 @@
 import Header from "./components/Header.jsx"
 import DailyCounter from "./components/DailyCounter.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(() => {
+    const data = localStorage.getItem("count");
+    return data !== null ? Number(data) : 0; 
+  });
+
+  useEffect(() => {
+    localStorage.setItem("count", count);
+  }, [count])
 
   function handleCount() {
     setCount(count + 1);
