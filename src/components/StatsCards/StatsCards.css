@@ -1,0 +1,21 @@
+@reference "../../index.css";
+
+.stats-cards {
+  @apply grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4;
+}
+
+.stats-card {
+  @apply flex flex-col gap-3 rounded-2xl border border-white/10 bg-[#20243B] p-5 transition duration-200 hover:border-violet-400/30;
+}
+
+.stats-card-icon {
+  @apply flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10 text-xl;
+}
+
+.stats-card-title {
+  @apply text-sm font-medium text-slate-400;
+}
+
+.stats-card-value {
+  @apply text-3xl font-bold tracking-tight text-white;
+}

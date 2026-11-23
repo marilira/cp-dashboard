@@ -8,10 +8,42 @@
   @apply mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 py-8 md:px-8;
 }
 
+/* Welcome */
+.welcome-banner {
+  @apply overflow-hidden rounded-2xl border border-violet-400/20 bg-gradient-to-r from-[#292052] via-[#30205B] to-[#20243B] p-6 md:p-8;
+}
+
+.welcome-content {
+  @apply flex flex-col gap-2;
+}
+
+.welcome-title {
+  @apply text-2xl font-bold tracking-tight text-white md:text-3xl;
+}
+
+.welcome-description {
+  @apply text-sm text-violet-200/80 md:text-base;
+}
+
+/* Sections */
 .app-section {
-  @apply flex flex-col gap-5;
+  @apply flex flex-col gap-4;
+}
+
+.counter-section {
+  @apply w-fit;
 }
 
 .section-title {
   @apply text-xl font-semibold text-white;
+}
+
+/* Counter message */
+.counter-message {
+  @apply text-sm text-slate-400;
+}
+
+/* Dashboard grid */
+.app-dashboard-grid {
+  @apply grid grid-cols-1 gap-8 lg:grid-cols-2;
 }
