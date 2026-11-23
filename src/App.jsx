@@ -3,17 +3,22 @@ import DailyCounter from "./components/DailyCounter.jsx";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(() => {
-    const data = localStorage.getItem("count");
-    return data !== null ? Number(data) : 0; 
+  const [dailyCounts, setDailyCounts] = useState(() => {
+    const data = localStorage.getItem("counts");
+    return data !== null ? JSON.parse(data) : {}; 
   });
+  const today = new Date().toLocaleDateString("en-CA");
+  const count = dailyCounts[today] || 0;
 
   useEffect(() => {
-    localStorage.setItem("count", count);
-  }, [count])
-
+    localStorage.setItem("counts", JSON.stringify(dailyCounts));
+  }, [dailyCounts])
+  
   function handleCount() {
-    setCount(count + 1);
+    setDailyCounts((prev) => ({
+      ...prev,
+      [today]: (prev[today] || 0) + 1
+    }));
   }
 
   return (
