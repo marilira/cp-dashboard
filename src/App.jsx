@@ -6,32 +6,18 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [dailyCounts, setDailyCounts] = useState(() => {
-    const data = localStorage.getItem("counts");
-    return data !== null ? JSON.parse(data) : {};
-  });
   const today = new Date().toLocaleDateString("en-CA");
-  const count = dailyCounts[today] || 0;
-
+  
   const [exercises, setExercises] = useState(() => {
     const data = localStorage.getItem("exercises");
     return data !== null ? JSON.parse(data) : [];
   });
-
-  useEffect(() => {
-    localStorage.setItem("counts", JSON.stringify(dailyCounts));
-  }, [dailyCounts]);
+  
+  const todayCount = exercises.filter((exercise) => exercise.date === today).length;
 
   useEffect(() => {
     localStorage.setItem("exercises", JSON.stringify(exercises));
   }, [exercises]);
-
-  function handleCount() {
-    setDailyCounts((prev) => ({
-      ...prev,
-      [today]: (prev[today] || 0) + 1,
-    }));
-  }
 
   function handleDeleteExercise(id) {
     setExercises((prev) => prev.filter((exercise) => exercise.id !== id));
@@ -43,16 +29,16 @@ function App() {
         <Header />
         <section className="app-section">
           <h2 className="section-title">Daily Counter</h2>
-          {count === 0 ? (
+          {todayCount === 0 ? (
             <p>
               Você ainda não resolveu nenhum exercício hoje. Que tal começar?
             </p>
           ) : (
             <p>
-              Boa! Você já resolveu {count} exercícios hoje. Continue assim!
+              Boa! Você já resolveu {todayCount} exercícios hoje. Continue assim!
             </p>
           )}
-          <DailyCounter count={count} onClick={handleCount} />
+          <DailyCounter count={todayCount} />
         </section>
         <section className="app-section">
           <h2 className="section-title">Adicionar exercícios</h2>

@@ -8,8 +8,6 @@ export default function DailyCounter(props) {
         <span className="daily-counter-count">{props.count}</span>
       <p className="daily-counter-description">exercícios resolvidos</p>
       </div>
-      
-      <button className="daily-counter-button" onClick={props.onClick}>Registrar exercício</button>
     </section>
   );
 }
