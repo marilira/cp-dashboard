@@ -10,7 +10,7 @@
 
 /* Welcome */
 .welcome-banner {
-  @apply overflow-hidden rounded-2xl border border-violet-400/20 bg-gradient-to-r from-[#292052] via-[#30205B] to-[#20243B] p-6 md:p-8;
+  @apply overflow-hidden rounded-2xl border border-violet-400/20 bg-linear-to-r from-[#292052] via-[#30205B] to-[#20243B] p-6 md:p-8;
 }
 
 .welcome-content {
